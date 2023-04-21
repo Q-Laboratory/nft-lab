@@ -151,7 +151,7 @@ describe("SimpleNFT", () => {
 
   describe("supportsInterface", () => {
     it("should support interfaces", async () => {
-      assert.isTrue(await token.supportsInterface("0xf082210b"));
+      assert.isTrue(await token.supportsInterface("0x42149c7b"));
       assert.isTrue(await token.supportsInterface("0x780e9d63"));
     });
   });

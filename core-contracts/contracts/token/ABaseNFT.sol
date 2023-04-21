@@ -12,12 +12,6 @@ import "../interface/ISimpleNFT.sol";
 abstract contract ABaseNFT is ISimpleNFT, Ownable, ERC721Enumerable, ERC721URIStorage {
     constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {}
 
-    function mintTo(
-        address receiver_,
-        uint256 tokenId_,
-        string calldata tokenURI_
-    ) external virtual override {}
-
     function burnFrom(address payer_, uint256 tokenId_) external override {
         require(
             ownerOf(tokenId_) == payer_ &&
@@ -34,21 +28,21 @@ abstract contract ABaseNFT is ISimpleNFT, Ownable, ERC721Enumerable, ERC721URISt
     }
 
     function tokenURI(
-        uint256 tokenId
+        uint256 tokenId_
     ) public view override(ERC721URIStorage, ERC721) returns (string memory) {
-        return super.tokenURI(tokenId);
+        return super.tokenURI(tokenId_);
     }
 
     function getTokensURIs(
         uint256[] calldata tokenIds_
     ) external view override returns (string[] memory) {
-        string[] memory uris = new string[](tokenIds_.length);
+        string[] memory uris_ = new string[](tokenIds_.length);
 
         for (uint256 i = 0; i < tokenIds_.length; i++) {
-            uris[i] = tokenURI(tokenIds_[i]);
+            uris_[i] = tokenURI(tokenIds_[i]);
         }
 
-        return uris;
+        return uris_;
     }
 
     function getTokenInfo(
@@ -58,21 +52,22 @@ abstract contract ABaseNFT is ISimpleNFT, Ownable, ERC721Enumerable, ERC721URISt
     }
 
     function supportsInterface(
-        bytes4 interfaceId
+        bytes4 interfaceId_
     ) public view override(ERC721Enumerable, ERC721, IERC165) returns (bool) {
-        return interfaceId == type(ISimpleNFT).interfaceId || super.supportsInterface(interfaceId);
+        return
+            interfaceId_ == type(ISimpleNFT).interfaceId || super.supportsInterface(interfaceId_);
     }
 
-    function _burn(uint256 tokenId) internal override(ERC721URIStorage, ERC721) {
-        super._burn(tokenId);
+    function _burn(uint256 tokenId_) internal override(ERC721URIStorage, ERC721) {
+        super._burn(tokenId_);
     }
 
     function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 tokenId,
-        uint256 batchSize
+        address from_,
+        address to_,
+        uint256 tokenId_,
+        uint256 batchSize_
     ) internal virtual override(ERC721Enumerable, ERC721) {
-        super._beforeTokenTransfer(from, to, tokenId, batchSize);
+        super._beforeTokenTransfer(from_, to_, tokenId_, batchSize_);
     }
 }
