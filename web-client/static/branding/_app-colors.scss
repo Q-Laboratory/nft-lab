@@ -1,0 +1,103 @@
+$white: #ffffff;
+$white-rgb: hexToRGB($white);
+$black: #000000;
+$black-rgb: hexToRGB($black);
+
+$background-primary-light: #ffffff;
+$background-primary-main: #fffbfe;
+$background-primary-dark: #f8f5ff;
+
+$background-secondary-light: #f4efff;
+$background-secondary-main: #e6ddfb;
+$background-secondary-dark: #d6caf5;
+
+$app-bg: #F5F5F5;
+$app-bg-secondary: #f9f9fb;
+$app-bg-tertiary: #ffffff;
+$app-bg-quaternary: #f3f5fa;
+
+/* status colors */
+
+$success-light: #64ed48;
+$success-main: #1bb901;
+$success-dark: #008800;
+
+$error-light: #ff8984;
+$error-main: #eb5757;
+$error-dark: #b3202e;
+
+$error-secondary-light: #ffffff;
+$error-secondary-main: #fdeeee;
+$error-secondary-dark: #cabcbc;
+
+$warning-light: #f16709;
+$warning-main: #ff6d00;
+$warning-dark: #c43c00;
+
+$info-light: #82f7ff;
+$info-main: #40c4ff;
+$info-dark: #0094cc;
+
+/* brand colors */
+
+$primary-light: #81aaff;
+$primary-main: #407bff;
+$primary-dark: #0050cb;
+
+$primary-light-rgb: hexToRGB($primary-light);
+$primary-main-rgb: hexToRGB($primary-main);
+$primary-dark-rgb: hexToRGB($primary-dark);
+
+$secondary-light: #8e8e8e;
+$secondary-main: #616161;
+$secondary-dark: #373737;
+
+$tertiary-light: #ffffff;
+$tertiary-main: #eef3ff;
+$tertiary-dark: #bcc0cc;
+
+/* typography colors */
+
+$text-primary-light: #606060;
+$text-primary-main: #363636;
+$text-primary-dark: #101010;
+
+$text-secondary-light: #adadb1;
+$text-secondary-main: #7e7e82;
+$text-secondary-dark: #525256;
+
+$text-tertiary-light: #abb6ce;
+$text-tertiary-main: #7c869d;
+$text-tertiary-dark: #4f596f;
+
+$text-quaternary-light: #fffffe;
+$text-quaternary-main: #cccccb;
+$text-quaternary-dark: #9b9b9a;
+
+$text-quinary-light: #dbe7ef;
+$text-quinary-main: #a9b5bd;
+$text-quinary-dark: #7a858d;
+
+$text-primary-invert-light: #ffffff;
+$text-primary-invert-main: #ffffff;
+$text-primary-invert-dark: #ffffff;
+
+$text-secondary-invert-light: #ffffff;
+$text-secondary-invert-main: #ffffff;
+$text-secondary-invert-dark: #ffffff;
+
+/* border colors */
+
+$border-primary-light: #cfcfcf;
+$border-primary-main: #9e9e9e;
+$border-primary-dark: #707070;
+
+$border-tertiary-light: #ffffff;
+$border-tertiary-main: #eaeced;
+$border-tertiary-dark: #b8babb;
+
+/* field colors */
+$field-secondary-bg: rgba($primary-main, 0.1);
+
+/* shadow colors */
+$shadow-primary: rgba(0, 0, 0, 0.12);
