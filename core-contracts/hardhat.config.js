@@ -8,7 +8,7 @@ require("hardhat-gas-reporter");
 require("solidity-coverage");
 
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ path: '../.env' })
 
 function privateKey() {
   return process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [];

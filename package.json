@@ -1,0 +1,14 @@
+{
+  "name": "nft-lab",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Distributed Lab",
+  "description": "",
+  "scripts": {
+    "install": "npm --prefix ./core-contracts run build && npm --prefix ./web-client run install-project",
+    "compile-contracts": "npm --prefix ./core-contracts run compile",
+    "generate-types": "npm --prefix ./core-contracts run generate-types",
+    "deploy-contracts": "npm --prefix ./core-contracts run deploy-qtestnet",
+    "start-web-client": "npm --prefix ./web-client run start"
+  }
+}
