@@ -14,7 +14,6 @@
     "private-network-fork": "npx hardhat node --fork https://mainnet.infura.io/v3/$(grep INFURA_KEY ../.env | cut -d '\\\"' -f2)",
     "deploy-localhost": "npx hardhat migrate --network localhost",
     "deploy-qtestnet": "npx hardhat migrate --network qtestnet --verify --confirmations 1 --attempts 5",
-    "deploy-sepolia": "npx hardhat migrate --network sepolia --verify --confirmations 3",
     "generate-types": "TYPECHAIN_FORCE=true npx hardhat typechain",
     "generate-docs": "npx hardhat markup",
     "lint-fix": "npm run lint-sol-fix && npm run lint-js-fix && npm run lint-json-fix",

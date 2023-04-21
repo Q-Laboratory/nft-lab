@@ -38,11 +38,6 @@ module.exports = {
       url: "https://rpc.qtestnet.org/",
       accounts: privateKey(),
     },
-    sepolia: {
-      url: `https://sepolia.infura.io/v3/${process.env.INFURA_KEY}`,
-      accounts: privateKey(),
-      gasMultiplier: 1.2,
-    },
   },
   solidity: {
     version: "0.8.19",
@@ -56,7 +51,6 @@ module.exports = {
   etherscan: {
     apiKey: {
       qtestnet: "abc",
-      sepolia: `${process.env.ETHERSCAN_KEY}`,
     },
     customChains: [
       {
