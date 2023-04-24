@@ -20,13 +20,22 @@
       </div>
 
       <app-button
-        v-if="provider.isConnected"
+        v-if="!isMetamaskExtension() && !provider.isConnected"
+        target="_blank"
+        size="medium"
+        scheme="filled"
+        modification="border-rounded"
+        :href="METAMASK_DOWNLOAD_LINK"
+        :text="$t('connect-page.install-metamask-btn')"
+      />
+      <app-button
+        v-else-if="!provider.isConnected"
         :text="$t('connect-page.connect-btn')"
         @click="provider.connect"
       />
       <app-button
         v-else
-        :text="$t('connect-page.connect-btn')"
+        :text="$t('connect-page.switch-network-btn')"
         @click="
           provider.switchNetwork(config.SUPPORTED_CHAIN_ID, DEFAULT_CHAIN)
         "
@@ -39,7 +48,9 @@
 import { AppButton } from '@/common'
 import { useWeb3ProvidersStore } from '@/store'
 import { DEFAULT_CHAIN, config } from '@/config'
+import { isMetamaskExtension } from '@/helpers'
 
+const METAMASK_DOWNLOAD_LINK = 'https://metamask.io/download'
 const { provider } = useWeb3ProvidersStore()
 </script>
 

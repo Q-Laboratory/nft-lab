@@ -263,7 +263,7 @@ const buttonClasses = computed(() =>
   }
 
   &--border-rounded {
-    border-radius: toRem(4);
+    border-radius: toRem(8);
   }
 
   &--large {

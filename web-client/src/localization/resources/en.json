@@ -74,7 +74,36 @@
     "connect-modal-title": "Connect to MetaMask",
     "connect-modal-subtitle": "Connect to MetaMask to start your work",
     "connect-btn": "Connect to MetaMask",
+    "install-metamask-btn": "Install MetaMask",
     "switch-network-btn": "Switch Network",
     "mint-lbl": "Mint"
+  },
+  "nfts-page-actions": {
+    "search-placeholder": "Search by address",
+    "search-btn": "Search",
+    "mint-btn": "Mint"
+  },
+  "nfts-page-mint-modal": {
+    "mint-title": "Mint NFT",
+    "nft-name-placeholder": "Enter the name of NFT",
+    "nft-name-title": "NFT name",
+    "nft-link-placeholder": "Enter the link to NFT image",
+    "nft-link-title": "NFT link",
+    "mint-btn": "Mint"
+  },
+  "nft-details-page": {
+    "back-btn": "Back to main page"
+  },
+  "nft-details-page-transfer-modal": {
+    "transfer-title": "Transfer NFT",
+    "address-placeholder": "Enter user address for transfer",
+    "address-title": "User address",
+    "transfer-btn": "Transfer"
+  },
+  "nft-details-page-description": {
+    "token-id": "Token id",
+    "contract-address": "Contract address",
+    "owner": "Owner",
+    "transfer-btn": "Transfer"
   }
 }

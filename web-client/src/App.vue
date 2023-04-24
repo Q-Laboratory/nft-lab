@@ -11,37 +11,33 @@
       </transition>
     </router-view>
   </div>
+  <loader v-else class="app__loader" />
 </template>
 
 <script lang="ts" setup>
+import { Loader } from '@/common'
 import { ErrorHandler } from '@/helpers/error-handler'
 import { ref } from 'vue'
 import { useNotifications } from '@/composables'
-import { useWeb3ProvidersStore } from '@/store'
+import { useWeb3ProvidersStore, useErc721Store } from '@/store'
 import { config } from '@config'
-import { PROVIDERS } from '@/enums'
 import { storeToRefs } from 'pinia'
 import ConnectPage from '@/pages/ConnectPage/ConnectPage.vue'
 
 const isAppInitialized = ref(false)
-const { detectProviders } = useWeb3ProvidersStore()
+const web3ProvidersStore = useWeb3ProvidersStore()
 
-const { providers, provider, isValidChain } = storeToRefs(
-  useWeb3ProvidersStore(),
-)
+const { erc721 } = useErc721Store()
+
+const { provider, isValidChain } = storeToRefs(useWeb3ProvidersStore())
 
 const init = async () => {
+  isAppInitialized.value = false
   try {
     useNotifications()
     document.title = config.APP_NAME
-    await detectProviders()
-    const designatedProvider = providers.value.find(
-      el => el.name === PROVIDERS.metamask,
-    )
-
-    if (designatedProvider) {
-      await provider.value.init(designatedProvider)
-    }
+    await web3ProvidersStore.init()
+    await erc721.loadDetails()
   } catch (error) {
     ErrorHandler.processWithoutFeedback(error)
   }
@@ -84,5 +80,11 @@ init()
   100% {
     opacity: 1;
   }
+}
+
+.app__loader {
+  width: 100%;
+  height: 100%;
+  flex: 1;
 }
 </style>

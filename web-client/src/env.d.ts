@@ -17,7 +17,6 @@ declare module '@vue/runtime-core' {
 interface ImportMetaEnv {
   VITE_ENVIRONMENT: string
   VITE_PORT: string
-  VITE_API_URL: string
   VITE_APP_NAME: string
   VITE_SUPPORTED_CHAIN_ID: string
 }
@@ -29,9 +28,5 @@ declare global {
 
   interface Window {
     ethereum?: EthereumProvider
-    solflare?: {
-      isSolflare: boolean
-    }
-    solana?: unknown
   }
 }

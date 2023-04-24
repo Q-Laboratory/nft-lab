@@ -14,14 +14,9 @@
 import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
-enum EVENTS {
-  updateIsShown = 'update:isShown',
-  clickOutside = 'click-outside',
-}
-
 const emit = defineEmits<{
-  (e: EVENTS.updateIsShown, payload: boolean): void
-  (e: EVENTS.clickOutside): void
+  (e: 'update:isShown', payload: boolean): void
+  (e: 'click-outside'): void
 }>()
 
 const props = withDefaults(
@@ -38,21 +33,21 @@ const props = withDefaults(
     closeByClickOutside: false,
   },
 )
-const modalPane = ref<HTMLElement | undefined>()
+const teleportModalPane = ref<HTMLElement | undefined>()
 onMounted(() => {
-  if (modalPane.value) {
-    onClickOutside(modalPane, () => {
+  if (teleportModalPane.value) {
+    onClickOutside(teleportModalPane, () => {
       props.closeByClickOutside ? closeModal() : emitClickOutside()
     })
   }
 })
 
 const closeModal = () => {
-  emit(EVENTS.updateIsShown, false)
+  emit('update:isShown', false)
 }
 
 const emitClickOutside = () => {
-  emit(EVENTS.clickOutside)
+  emit('click-outside')
 }
 </script>
 

@@ -4,11 +4,11 @@ import { pickBy, mapKeys } from 'lodash-es'
 import { utils } from 'ethers'
 
 export const config = {
-  API_URL: import.meta.env.VITE_API_URL,
   APP_NAME: import.meta.env.VITE_APP_NAME,
   LOG_LEVEL: 'trace' as LogLevelDesc,
   BUILD_VERSION: packageJson.version || import.meta.env.VITE_APP_BUILD_VERSION,
   SUPPORTED_CHAIN_ID: import.meta.env.VITE_SUPPORTED_CHAIN_ID,
+  ERC721_ADDRESS: import.meta.env.VITE_ERC721_ADDRESS,
 } as const
 
 Object.assign(config, _mapEnvCfg(import.meta.env))

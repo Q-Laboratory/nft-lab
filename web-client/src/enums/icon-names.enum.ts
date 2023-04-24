@@ -145,6 +145,7 @@ export enum ICON_NAMES {
   moon = 'moon',
   musicNote = 'music-note',
   newspaper = 'newspaper',
+  noData = 'no-data',
   officeBuilding = 'office-building',
   paperAirplane = 'paper-airplane',
   paperClip = 'paper-clip',

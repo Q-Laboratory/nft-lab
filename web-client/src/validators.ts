@@ -1,6 +1,7 @@
 import {
   required as _required,
   email as _email,
+  url as _url,
   minLength as _minLength,
   maxLength as _maxLength,
   sameAs as _sameAs,
@@ -21,6 +22,7 @@ const withI18nMessage = createI18nMessage({ t, messagePath })
 export const required = <ValidationRule>withI18nMessage(_required)
 
 export const email = <ValidationRule>withI18nMessage(_email)
+export const url = <ValidationRule>withI18nMessage(_url)
 
 export const minLength = (length: number): ValidationRule =>
   <ValidationRule>withI18nMessage(_minLength(length))

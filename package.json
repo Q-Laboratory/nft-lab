@@ -9,6 +9,7 @@
     "compile-contracts": "npm --prefix ./core-contracts run compile",
     "generate-types": "npm --prefix ./core-contracts run generate-types",
     "deploy-contracts": "npm --prefix ./core-contracts run deploy-qtestnet",
-    "start-web-client": "npm --prefix ./web-client run start"
+    "copy-file": "npx cross-var \"cp ./.env ./web-client\"",
+    "start-web-client": "npm run copy-file && npm --prefix ./web-client run start"
   }
 }
