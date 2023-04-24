@@ -68,6 +68,11 @@ const filterNftList = () => {
 .nfts-page-actions {
   display: flex;
   justify-content: space-between;
+  gap: toRem(10);
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+  }
 }
 
 .nfts-page-actions__search {
@@ -77,9 +82,18 @@ const filterNftList = () => {
 
 .nfts-page-actions__search-input {
   min-width: toRem(350);
+
+  @include respond-to(tablet) {
+    min-width: 0;
+  }
 }
 
 .nfts-page-actions__mint-button {
   min-width: toRem(150);
+
+  @include respond-to(tablet) {
+    min-width: 0;
+    width: 100%;
+  }
 }
 </style>

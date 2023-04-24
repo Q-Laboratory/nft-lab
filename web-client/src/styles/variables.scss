@@ -79,14 +79,14 @@
   --app-bg-tertiary: #{$app-bg-tertiary};
   --app-bg-quaternary: #{$app-bg-quaternary};
   --app-txt: #{$text-primary-main};
-  --app-font-family: 'Inter', 'Roboto', 'Arial', sans-serif;
-  --app-padding-top: #{toRem(56)};
+  --app-font-family: 'Inter', 'Arial', sans-serif;
+  --app-padding-top: #{toRem(10)};
   --app-padding-bottom: #{toRem(56)};
   --app-padding-right: #{toRem(92)};
   --app-padding-left: #{toRem(92)};
 
   @include respond-to(small) {
-    --app-padding-top: #{toRem(36)};
+    --app-padding-top: #{toRem(5)};
     --app-padding-bottom: #{toRem(36)};
     --app-padding-right: #{toRem(24)};
     --app-padding-left: #{toRem(24)};

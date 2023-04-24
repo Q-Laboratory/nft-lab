@@ -97,7 +97,7 @@ loadNftData()
 .nfts-page {
   display: flex;
   flex-direction: column;
-  gap: toRem(50);
+  gap: toRem(30);
   width: 100%;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div v-if="isAppInitialized" class="app__container">
     <router-view v-slot="{ Component }">
+      <app-navbar v-if="isValidChain && provider.isConnected" />
       <transition name="fade" mode="out-in">
         <component
           v-if="isValidChain && provider.isConnected"
@@ -15,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Loader } from '@/common'
+import { Loader, AppNavbar } from '@/common'
 import { ErrorHandler } from '@/helpers/error-handler'
 import { ref } from 'vue'
 import { useNotifications } from '@/composables'
@@ -53,11 +54,13 @@ init()
 .app__container {
   display: grid;
   grid-template-rows: 1fr max-content;
+  grid-template-rows: toRem(85) 1fr max-content;
   flex: 1;
   background: var(--app-bg);
 
   @include respond-to(small) {
     grid-template-rows: 1fr max-content;
+    grid-template-rows: max-content 1fr max-content;
   }
 }
 
