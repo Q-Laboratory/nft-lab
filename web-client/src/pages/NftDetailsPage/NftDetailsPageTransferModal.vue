@@ -5,7 +5,10 @@
         {{ $t('nft-details-page-transfer-modal.transfer-title') }}
       </h4>
 
-      <div class="nft-details-page-transfer-modal__inputs">
+      <div
+        v-if="!isFormDisabled"
+        class="nft-details-page-transfer-modal__inputs"
+      >
         <div class="nft-details-page-transfer-modal__input-wrapper">
           <span class="nft-details-page-transfer-modal__input-title">
             {{ $t('nft-details-page-transfer-modal.address-title') }}
@@ -22,11 +25,25 @@
         </div>
       </div>
 
+      <div
+        v-if="isFormDisabled"
+        class="nft-details-page-transfer-modal__loader-wrapper"
+      >
+        <loader />
+        <span class="nft-details-page-transfer-modal__loader-text">
+          {{ $t('nft-details-page-transfer-modal.loading-msg') }}
+        </span>
+      </div>
+
       <div class="nft-details-page-transfer-modal__actions">
         <app-button
           class="nft-details-page-transfer-modal__actions-btn"
           size="large"
-          :text="$t('nft-details-page-transfer-modal.transfer-btn')"
+          :text="
+            !isFormDisabled
+              ? $t('nft-details-page-transfer-modal.transfer-btn')
+              : $t('nft-details-page-transfer-modal.loading-msg-btn')
+          "
           :disabled="isFormDisabled"
           @click="transferNft"
         />
@@ -37,12 +54,13 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { AppButton, TeleportModal } from '@/common'
+import { AppButton, TeleportModal, Loader } from '@/common'
 import { InputField } from '@/fields'
 import { useForm, useFormValidation } from '@/composables'
-import { required } from '@/validators'
+import { required, ethAddress } from '@/validators'
 import { useErc721Store, useWeb3ProvidersStore } from '@/store'
-import { ErrorHandler } from '@/helpers'
+import { Bus, ErrorHandler } from '@/helpers'
+import { useI18n } from 'vue-i18n'
 
 const emit = defineEmits<{
   (e: 'close'): void
@@ -57,12 +75,13 @@ const form = reactive({
   address: '',
 })
 
+const { t } = useI18n({ useScope: 'global' })
 const { isFormDisabled, disableForm, enableForm } = useForm()
 const { erc721 } = useErc721Store()
 const { provider } = useWeb3ProvidersStore()
 
 const { isFormValid, touchField } = useFormValidation(form, {
-  address: { required },
+  address: { required, ethAddress },
 })
 
 const transferNft = async () => {
@@ -75,6 +94,7 @@ const transferNft = async () => {
       props.nftId,
     )
     await tx?.wait()
+    Bus.success(t('nft-details-page-transfer-modal.success-transfer'))
     emit('save')
   } catch (error) {
     ErrorHandler.process(error)
@@ -83,6 +103,7 @@ const transferNft = async () => {
 }
 
 const closeModal = () => {
+  if (isFormDisabled.value) return
   emit('close')
 }
 </script>
@@ -116,6 +137,21 @@ const closeModal = () => {
   font-size: toRem(16);
 }
 
+.nft-details-page-transfer-modal__loader-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: toRem(24);
+}
+
+.nft-details-page-transfer-modal__loader-text {
+  max-width: toRem(220);
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--text-secondary-main);
+}
 .nft-details-page-transfer-modal__actions {
   display: flex;
   justify-content: center;

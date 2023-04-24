@@ -7,6 +7,10 @@ export const isMetamaskExtension = () => {
   return window?.ethereum?.isMetaMask
 }
 
+export function verifyEthAddress(address: string) {
+  return ethers.utils.isAddress(address)
+}
+
 export const connectEthAccounts = async (
   provider: ethers.providers.Web3Provider,
 ) => {

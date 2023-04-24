@@ -1,7 +1,6 @@
 import packageJson from '../package.json'
 import { LogLevelDesc } from 'loglevel'
 import { pickBy, mapKeys } from 'lodash-es'
-import { utils } from 'ethers'
 
 export const config = {
   APP_NAME: import.meta.env.VITE_APP_NAME,
@@ -24,7 +23,7 @@ function _mapEnvCfg(env: ImportMetaEnv | typeof document.ENV): {
 }
 
 export const DEFAULT_CHAIN = {
-  chainId: utils.hexlify(35443),
+  chainId: 35443,
   chainName: 'Q Testnet',
   rpcUrls: ['https://rpc.qtestnet.org'],
   blockExplorerUrls: ['https://explorer.qtestnet.org'],

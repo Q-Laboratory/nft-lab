@@ -10,7 +10,6 @@ export { default as AppNavbar } from '@/common/AppNavbar.vue'
 export { default as Notification } from '@/common/Notification.vue'
 export { default as Modal } from '@/common/Modal.vue'
 export { default as TeleportModal } from '@/common/TeleportModal.vue'
-export { default as Erc20 } from '@/common/Erc20.vue'
 
 export * from './modals'
 export * from './loaders'

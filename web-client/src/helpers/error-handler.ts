@@ -31,6 +31,7 @@ export class ErrorHandler {
           errorMessage = t('errors.provider-not-supported-error')
           break
         case errors.ProviderUserRejectedRequest:
+          errorMessage = t('errors.provider-reject-request')
           break
         case errors.ProviderUnauthorized:
           errorMessage = t('errors.provider-unauthorized')
@@ -87,6 +88,8 @@ export class ErrorHandler {
           errorMessage = t('errors.default')
         }
       }
+    } else {
+      errorMessage = t('errors.default')
     }
 
     return errorMessage

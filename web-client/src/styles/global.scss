@@ -128,3 +128,11 @@ a {
     text-decoration: none;
   }
 }
+.app__page-loader,
+.app__page-no-data-message,
+.app__page-error-message {
+  margin: 0 auto;
+  max-width: toRem(450);
+  padding: toRem(24);
+  height: toRem(400);
+}

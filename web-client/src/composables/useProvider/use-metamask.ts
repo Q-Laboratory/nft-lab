@@ -104,11 +104,12 @@ export const useMetamask = (provider: ProviderInstance): ProviderWrapper => {
   const switchNetwork = async (chainId: ChainId, chain: Chain) => {
     try {
       try {
-        await switchChain(Number(chainId))
+        await requestSwitchEthChain(currentProvider.value, Number(chainId))
       } catch (error) {
-        if ((error as EthProviderRpcError).code === 4902) {
+        const code = (error as EthProviderRpcError).code
+        if (code === 4902 || code === -32603) {
           try {
-            await addChain(chain)
+            await requestAddEthChain(currentProvider.value, chain)
           } catch (error) {
             throw error as EthProviderRpcError
           }

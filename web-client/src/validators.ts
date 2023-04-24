@@ -11,6 +11,7 @@ import { Ref } from 'vue'
 import { createI18nMessage, MessageProps } from '@vuelidate/validators'
 import { get } from 'lodash-es'
 import { i18n } from '@/localization'
+import { verifyEthAddress } from '@/helpers'
 
 const { t } = i18n.global || i18n
 
@@ -33,3 +34,5 @@ export const maxLength = (length: number): ValidationRule =>
 export const sameAs = (field: Ref): ValidationRule => {
   return <ValidationRule>withI18nMessage(_sameAs(field, get(field, '_key')))
 }
+
+export const ethAddress = <ValidationRule>withI18nMessage(verifyEthAddress)

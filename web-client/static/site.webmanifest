@@ -1,20 +1,10 @@
 {
-  "name": "vue-vite-template",
-  "short_name": "vue-vite-template",
+  "name": "Nft Laboratory work",
+  "short_name": "Nft Lab",
   "icons": [
     {
-      "src": "/branding/android-chrome-192x192.png",
+      "src": "/branding/favicon.png",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/branding/android-chrome-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "/branding/android-chrome-512x512.png",
-      "sizes": "512x512",
       "type": "image/png"
     }
   ],

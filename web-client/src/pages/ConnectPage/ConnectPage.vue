@@ -22,19 +22,19 @@
       <app-button
         v-if="!isMetamaskExtension() && !provider.isConnected"
         target="_blank"
-        size="medium"
-        scheme="filled"
-        modification="border-rounded"
+        :icon-left="$icons.metamask"
         :href="METAMASK_DOWNLOAD_LINK"
         :text="$t('connect-page.install-metamask-btn')"
       />
       <app-button
         v-else-if="!provider.isConnected"
         :text="$t('connect-page.connect-btn')"
+        :icon-left="$icons.metamask"
         @click="provider.connect"
       />
       <app-button
         v-else
+        :icon-left="$icons.metamask"
         :text="$t('connect-page.switch-network-btn')"
         @click="
           provider.switchNetwork(config.SUPPORTED_CHAIN_ID, DEFAULT_CHAIN)
@@ -56,9 +56,11 @@ const { provider } = useWeb3ProvidersStore()
 
 <style lang="scss" scoped>
 .connect-page {
-  display: grid;
-  grid-gap: toRem(50);
-  padding-bottom: toRem(200);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: toRem(50);
+  width: 100%;
 }
 
 .connect-page__info-title-wrapper,
@@ -91,6 +93,7 @@ const { provider } = useWeb3ProvidersStore()
   padding: toRem(32);
   box-shadow: 0 toRem(4) toRem(40) var(--shadow-primary);
   border-radius: toRem(16);
+  min-width: toRem(600);
 }
 
 .connect-page__info-title {

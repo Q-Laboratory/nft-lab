@@ -5,7 +5,7 @@
         {{ $t('nfts-page-mint-modal.mint-title') }}
       </h4>
 
-      <div class="nfts-page-mint-modal__inputs">
+      <div v-if="!isFormDisabled" class="nfts-page-mint-modal__inputs">
         <div class="nfts-page-mint-modal__input-wrapper">
           <span class="nfts-page-mint-modal__input-title">
             {{ $t('nfts-page-mint-modal.nft-link-title') }}
@@ -15,17 +15,30 @@
             class="nfts-page-mint-modal__input"
             :placeholder="$t('nfts-page-mint-modal.nft-link-placeholder')"
             :disabled="isFormDisabled"
+            :error-message="getFieldErrorMessage('link')"
             @blur="touchField('link')"
           />
         </div>
       </div>
+
+      <div v-if="isFormDisabled" class="nfts-page-mint-modal__loader-wrapper">
+        <loader />
+        <span class="nfts-page-mint-modal__loader-text">
+          {{ $t('nfts-page-mint-modal.loading-msg') }}
+        </span>
+      </div>
+
       <div class="nfts-page-mint-modal__actions">
         <app-button
           class="nfts-page-mint-modal__actions-btn"
           size="large"
-          :text="$t('nfts-page-mint-modal.mint-btn')"
+          :text="
+            !isFormDisabled
+              ? $t('nfts-page-mint-modal.mint-btn')
+              : $t('nfts-page-mint-modal.loading-msg-btn')
+          "
           :disabled="isFormDisabled"
-          @click="saveApy"
+          @click="mintNft"
         />
       </div>
     </div>
@@ -34,12 +47,13 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import { AppButton, TeleportModal } from '@/common'
+import { AppButton, TeleportModal, Loader } from '@/common'
 import { InputField } from '@/fields'
 import { useForm, useFormValidation } from '@/composables'
 import { required, url } from '@/validators'
 import { useErc721Store, useWeb3ProvidersStore } from '@/store'
-import { ErrorHandler } from '@/helpers'
+import { Bus, ErrorHandler } from '@/helpers'
+import { useI18n } from 'vue-i18n'
 
 const emit = defineEmits<{
   (e: 'close'): void
@@ -51,15 +65,19 @@ const form = reactive({
   link: '',
 })
 
+const { t } = useI18n({ useScope: 'global' })
 const { isFormDisabled, disableForm, enableForm } = useForm()
 const { erc721 } = useErc721Store()
 const { provider } = useWeb3ProvidersStore()
 
-const { isFormValid, touchField } = useFormValidation(form, {
-  link: { required, url },
-})
+const { isFormValid, touchField, getFieldErrorMessage } = useFormValidation(
+  form,
+  {
+    link: { required, url },
+  },
+)
 
-const saveApy = async () => {
+const mintNft = async () => {
   if (!isFormValid() || !provider.selectedAddress) return
   disableForm()
   try {
@@ -69,6 +87,7 @@ const saveApy = async () => {
       form.link,
     )
     await tx?.wait()
+    Bus.success(t('nfts-page-mint-modal.success-mint'))
     emit('save')
   } catch (error) {
     ErrorHandler.process(error)
@@ -77,6 +96,7 @@ const saveApy = async () => {
 }
 
 const closeModal = () => {
+  if (isFormDisabled.value) return
   emit('close')
 }
 </script>
@@ -110,6 +130,21 @@ const closeModal = () => {
   font-size: toRem(16);
 }
 
+.nfts-page-mint-modal__loader-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: toRem(24);
+}
+
+.nfts-page-mint-modal__loader-text {
+  max-width: toRem(220);
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--text-secondary-main);
+}
 .nfts-page-mint-modal__actions {
   display: flex;
   justify-content: center;

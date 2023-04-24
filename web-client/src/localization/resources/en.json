@@ -1,6 +1,7 @@
 {
   "validations": {
     "field-error_required": "Please fill out this field",
+    "field-error_url": "Field must be a valid URL",
     "field-error_email": "Field must be a valid email"
   },
   "errors": {
@@ -16,10 +17,11 @@
     "provider-invalid-params": "Invalid method parameters standard",
     "provider-internal-error": "Internal JSON-RPC error standard",
     "provider-invalid-input": "Missing or invalid parameters non-standard",
-    "provider-resource-not-found": "equested resource not found non-standard",
+    "provider-resource-not-found": "Requested resource not found non-standard",
     "provider-resource-unavailable": "Requested resource not available non-standard",
     "provider-transaction-rejected": "Transaction creation failed non-standard",
     "provider-method-not-supported": "Method is not implemented non-standard",
+    "provider-reject-request": "You reject transaction",
     "provider-limit-exceeded": "Request exceeds defined limit non-standard",
     "provider-json-rpc-version-not-supported": "Version of JSON-RPC protocol is not supported non-standard",
     "provider-wrapper-method-not-found": "provider not exist or hasn't this method"
@@ -36,37 +38,6 @@
     "default-message-info": "Something is happening. Just want you to know that",
     "default-message-default": "Just a message"
   },
-  "login-form": {
-    "login-lbl": "Login",
-    "password-lbl": "Password",
-    "login-success-msg": "Access granted",
-    "submit-btn": "Submit"
-  },
-  "ui-kit-page": {
-    "button": "Button",
-    "some-placeholder": "placeholder",
-    "some-label": "label",
-    "some-error-message": "error-message",
-    "modal-btn": "Open modal",
-    "accordion-btn": "Toggle Accordion",
-    "collapse-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "loading-error-msg": "Oops, something went wrong",
-    "no-data-msg": "Empty data, please add new"
-  },
-  "web3-page": {
-    "loading-error-msg": "Oops... Something went wrong"
-  },
-  "erc20": {
-    "loading-error-msg": "Oops... Something went wrong",
-    "title": "ERC20",
-    "name-lbl": "Name",
-    "symbol-lbl": "Symbol",
-    "decimals-lbl": "Decimals",
-    "total-supply-lbl": "Total supply",
-    "balance-lbl": "Balance",
-    "transfer-lbl": "Transfer",
-    "mint-lbl": "Mint"
-  },
   "connect-page": {
     "loading-error-msg": "Oops... Something went wrong",
     "title": "Laboratory work",
@@ -78,6 +49,10 @@
     "switch-network-btn": "Switch Network",
     "mint-lbl": "Mint"
   },
+  "nfts-page": {
+    "loading-error-msg": "Oops, something went wrong",
+    "no-data-msg": "Empty data, please add new"
+  },
   "nfts-page-actions": {
     "search-placeholder": "Search by address",
     "search-btn": "Search",
@@ -85,19 +60,27 @@
   },
   "nfts-page-mint-modal": {
     "mint-title": "Mint NFT",
+    "success-mint": "You success mint NFT",
     "nft-name-placeholder": "Enter the name of NFT",
     "nft-name-title": "NFT name",
     "nft-link-placeholder": "Enter the link to NFT image",
     "nft-link-title": "NFT link",
+    "loading-msg-btn": "Loading...",
+    "loading-msg": "Please wait for the successful completion of the transaction",
     "mint-btn": "Mint"
   },
   "nft-details-page": {
-    "back-btn": "Back to main page"
+    "back-btn": "Back to main page",
+    "loading-error-msg": "Oops, something went wrong",
+    "no-data-msg": "Empty data"
   },
   "nft-details-page-transfer-modal": {
     "transfer-title": "Transfer NFT",
     "address-placeholder": "Enter user address for transfer",
     "address-title": "User address",
+    "success-transfer": "You success transfer NFT",
+    "loading-msg-btn": "Loading...",
+    "loading-msg": "Please wait for the successful completion of the transaction",
     "transfer-btn": "Transfer"
   },
   "nft-details-page-description": {
