@@ -14,6 +14,5 @@ data:
                                 FILE_STORAGE: 'https://s3.{{ .Values.global.aws.Region  }}.amazonaws.com/{{ .Values.config.data.BUCKET  }}',
                                 {{ end }}
                                 WEB_CLIENT_URL: 'https://{{ .Values.global.IngressDomain  }}',
-                                VUE_APP_API_URL: '{{ .Values.config.data.VUE_APP_API_URL }}'
                               }
 {{- end }}

@@ -68,4 +68,25 @@ export interface ProviderWrapper {
   signMessage?: (message: string) => Promise<string | undefined>
 }
 
+export interface UseUnrefProvider {
+  currentProvider?: ethers.providers.Web3Provider
+  currentSigner?: ethers.providers.JsonRpcSigner
+
+  chainId: ChainId
+  selectedAddress: string
+  isConnected: boolean
+
+  init: (provider: DesignatedProvider) => Promise<void>
+  connect: () => Promise<void>
+  disconnect: () => void
+  switchChain: (chainId: ChainId) => Promise<void>
+  switchNetwork: (chainId: ChainId, chain: Chain) => Promise<void>
+  addChain?: (chainId: Chain) => Promise<void>
+  signAndSendTx: (txRequestBody: TxRequestBody) => Promise<TransactionResponse>
+  getHashFromTxResponse: (txResponse: TransactionResponse) => string
+  getTxUrl: (explorerUrl: string, txHash: string) => string
+  getAddressUrl: (explorerUrl: string, address: string) => string
+  getBalance: (address: string) => Promise<string>
+}
+
 export type { UseProvider } from '@/composables'

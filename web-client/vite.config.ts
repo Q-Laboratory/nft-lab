@@ -66,6 +66,7 @@ export default defineConfig(({ command, mode }) => {
         '@': `${root}/`,
         '@config': `${root}/config.ts`,
         '@static': `${root}/../static`,
+        '@contracts': `${root}/../../core-contracts/`,
       },
     },
   }

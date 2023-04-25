@@ -24,6 +24,7 @@
       "@/*": ["src/*"],
       "@config": ["src/config.ts"],
       "@static": ["static"],
+      "@contracts/*": ["../core-contracts/*"],
     },
     "lib": [
       "esnext",

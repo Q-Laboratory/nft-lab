@@ -263,7 +263,7 @@ const buttonClasses = computed(() =>
   }
 
   &--border-rounded {
-    border-radius: toRem(4);
+    border-radius: toRem(8);
   }
 
   &--large {
@@ -279,10 +279,10 @@ const buttonClasses = computed(() =>
   }
 
   &--medium {
-    padding: toRem(12) toRem(24);
-    font-size: toRem(12);
-    line-height: 1.3;
-    font-weight: 500;
+    padding: toRem(16);
+    font-size: toRem(16);
+    line-height: 1.5;
+    font-weight: 600;
     grid-gap: toRem(10);
 
     &.app-button--icon-only {

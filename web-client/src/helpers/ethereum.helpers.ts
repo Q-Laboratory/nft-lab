@@ -2,6 +2,15 @@ import { Chain, EthProviderRpcError } from '@/types'
 import { errors } from '@/errors'
 import { ethers } from 'ethers'
 import { EIP1193, EIP1474, EIP1193String } from '@/enums'
+
+export const isMetamaskExtension = () => {
+  return window?.ethereum?.isMetaMask
+}
+
+export function verifyEthAddress(address: string) {
+  return ethers.utils.isAddress(address)
+}
+
 export const connectEthAccounts = async (
   provider: ethers.providers.Web3Provider,
 ) => {

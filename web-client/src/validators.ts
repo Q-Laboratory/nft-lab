@@ -1,6 +1,7 @@
 import {
   required as _required,
   email as _email,
+  url as _url,
   minLength as _minLength,
   maxLength as _maxLength,
   sameAs as _sameAs,
@@ -10,6 +11,7 @@ import { Ref } from 'vue'
 import { createI18nMessage, MessageProps } from '@vuelidate/validators'
 import { get } from 'lodash-es'
 import { i18n } from '@/localization'
+import { verifyEthAddress } from '@/helpers'
 
 const { t } = i18n.global || i18n
 
@@ -21,6 +23,7 @@ const withI18nMessage = createI18nMessage({ t, messagePath })
 export const required = <ValidationRule>withI18nMessage(_required)
 
 export const email = <ValidationRule>withI18nMessage(_email)
+export const url = <ValidationRule>withI18nMessage(_url)
 
 export const minLength = (length: number): ValidationRule =>
   <ValidationRule>withI18nMessage(_minLength(length))
@@ -31,3 +34,5 @@ export const maxLength = (length: number): ValidationRule =>
 export const sameAs = (field: Ref): ValidationRule => {
   return <ValidationRule>withI18nMessage(_sameAs(field, get(field, '_key')))
 }
+
+export const ethAddress = <ValidationRule>withI18nMessage(verifyEthAddress)

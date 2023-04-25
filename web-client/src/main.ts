@@ -8,7 +8,6 @@ import VueToastificationPlugin from 'vue-toastification'
 import { ICON_NAMES, ROUTE_NAMES } from '@/enums'
 import { createApp, getCurrentInstance, h } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { initApi } from '@/api'
 import { i18n } from '@/localization'
 import { config } from '@config'
 import { router } from '@/router'
@@ -22,7 +21,6 @@ const app = createApp({
       app.appContext.config.globalProperties.$t = t
       app.appContext.config.globalProperties.$locale = locale
     }
-    initApi()
   },
   render: () => h(App),
 })
