@@ -41,7 +41,7 @@
   "connect-page": {
     "loading-error-msg": "Oops... Something went wrong",
     "title": "Laboratory work",
-    "subtitle": "Blandit tempus eget augue amet viverra et arcu. Sit eget etiam sit amet. Sed egestas adipiscing diam rutrum elementum maecenas.",
+    "subtitle": "This is a lab work, the main objective of which is to show by example how to deploy solidity smart contracts and work with a locally running frontend",
     "connect-modal-title": "Connect to MetaMask",
     "connect-modal-subtitle": "Connect to MetaMask to start your work",
     "connect-btn": "Connect to MetaMask",
