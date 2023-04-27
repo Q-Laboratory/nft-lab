@@ -1,29 +1,38 @@
 # NFT-Lab
 
-This practical work contains several tasks for interacting with solid contracts and the front-end. 
+This practical work contains several tasks for interacting with NFT smart contract using the simplest front-end application. 
 There we describe step-by-step instruction
 
 ## Get started
 
 To prepare for this lab work, the following steps are required:
-1. Installed code editor (Visual Studio Code is preferable)
 
-2. Install node js (the steps will be different for each operating system)
+1. Installed code editor (Visual Studio Code or alternative one)
+
+2. Installed [node js](https://nodejs.org/en)
 
 3. You can check if the installation was successful by running the command npm -v 
 
-4. Install the Metamask browser extension.
+4. Installed the Metamask browser extension.
 
-5. Create a new Metamask address 
-(do not use a personal account so as not to compromise your data)
+### For interacting with Q testnet you should
 
-6. Get test tokens on the created address using [Q faucet](https://faucet.qtestnet.org/)
+5. Connect Metamask to the Q testnet
+   1. Network name: Q Testnet
+   2. RPC URL: https://rpc.qtestnet.org
+   3. Chain ID: 35443
+   4. Currency symbol: "Q "
+   5. Block explorer URL: https://explorer.qtestnet.org
 
-7. Copy the code of lab work from GitHub this can be done in several ways: 
+6. Create a new Metamask address (do not use a personal account so as not to compromise your data)
+
+7. Get test tokens on the created address using [Q faucet](https://faucet.qtestnet.org/)
+
+8. Copy the code of lab work from GitHub this can be done in several ways: 
     * download the repository as a zip archive and unzip it to the desired location 
     * use the built-in "Clone Git Repository" function of Visual Studio Code Editor (here you will need to copy the link from the repository)
 
-## Main part
+## Preparing contracts and FE part
 
 1. Open the folder with the lab from the previous step in the code editor
 
@@ -61,17 +70,17 @@ This can be done as follows:
 
  :warning: **Save files after making changes to them**
 
-## Main Tasks
+## Tasks
 After successfully completing the Main part, you must complete the following tasks:
 1. Check the operation of the basic flow:
-    * Mint nft use picture links (You can download the desired images to ipfs or find pictures on google and use the :warning: Copy Image Address :warning: function)
-    * Transfer nft to another address 
+    * Mint NFT use picture links (You can download the desired images to ipfs or find pictures on google and use the :warning: Copy Image Address :warning: function)
+    * Transfer NFT to another address 
     * Switch to another address to see the differences that will be in the interface
     * Use the address search
 
 After these steps in the terminal of the code editor you need to do the command `control + C` After that the frontend will not work locally
 
-2. Make a contract for NFT mint into a contract for SBT mint. To do this, add some code in the file `SimpleNFT.sol` at the path `NFT-LAB/core-contracts/contracts` after the comment `// TODO: additional task`
+2. Make a contract for NFT mint into a contract for [SBT](https://vitalik.ca/general/2022/01/26/soulbound.html) mint. To do this, add some code in the file `SimpleNFT.sol` at the path `NFT-LAB/core-contracts/contracts` after the comment `// TODO: additional task`
 
 3. After you have made changes to the `SimpleNFT.sol` file you need to redeploy and locally restart the frontend part, to do this you need to repeat steps 6-9 from the Main part. Then go through point 1 of the Main Tasks section
 
