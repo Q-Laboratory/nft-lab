@@ -59,7 +59,7 @@ This can be done as follows:
 
 9. When you click on the link, you will see the frontend part that will work with the contracts that we have deployed.
 
-_** :warning: Save files after making changes to them**_
+ :warning: **Save files after making changes to them**
 
 ## Main Tasks
 After successfully completing the Main part, you must complete the following tasks:
