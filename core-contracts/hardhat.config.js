@@ -21,7 +21,7 @@ function typechainTarget() {
 }
 
 function forceTypechain() {
-  return process.env.TYPECHAIN_FORCE == "true";
+  return true;
 }
 
 module.exports = {
