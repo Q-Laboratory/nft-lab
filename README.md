@@ -65,6 +65,12 @@ This can be done as follows:
     npm run start-web-client
     ```
     After its completion, there will be a link in the terminal to the front end which works locally.
+    
+    :warning: If you are using **Windows OS**, you need to replace line 14 in `package.json` file with following command **before execution step 8**:
+
+```
+"start-web-client": "npm run copy-file-win && npm --prefix ./web-client run start"
+ ```
 
 9. When you click on the link, you will see the frontend part that will work with the contracts that we have deployed.
 
