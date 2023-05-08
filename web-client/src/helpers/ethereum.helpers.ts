@@ -44,7 +44,7 @@ export async function requestAddEthChain(
 export function handleEthError(error: EthProviderRpcError) {
   switch (error.code) {
     case EIP1193.userRejectedRequest:
-    case EIP1193String.userRejectedRequest: // TODO: discuss
+    case EIP1193String.userRejectedRequest:
       throw new errors.ProviderUserRejectedRequest(error.message)
     case EIP1193.unauthorized:
       throw new errors.ProviderUnauthorized(error.message)
@@ -80,6 +80,8 @@ export function handleEthError(error: EthProviderRpcError) {
       throw new errors.ProviderLimitExceeded(error.message)
     case EIP1474.jsonRpcVersionNotSupported:
       throw new errors.ProviderJsonRpcVersionNotSupported(error.message)
+    case EIP1193String.failedEstimateGas:
+      throw new errors.ProviderFailedEstimateGas()
     default:
       throw error
   }

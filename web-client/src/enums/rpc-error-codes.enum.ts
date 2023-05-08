@@ -9,6 +9,7 @@ export enum EIP1193 {
 
 export enum EIP1193String {
   userRejectedRequest = 'ACTION_REJECTED',
+  failedEstimateGas = 'UNPREDICTABLE_GAS_LIMIT',
 }
 
 export enum EIP1474 {

@@ -24,7 +24,8 @@
     "provider-reject-request": "You reject transaction",
     "provider-limit-exceeded": "Request exceeds defined limit non-standard",
     "provider-json-rpc-version-not-supported": "Version of JSON-RPC protocol is not supported non-standard",
-    "provider-wrapper-method-not-found": "provider not exist or hasn't this method"
+    "provider-wrapper-method-not-found": "provider not exist or hasn't this method",
+    "provider-failed-estimate-gas": "The request can't estimate gas. Please try again later!"
   },
   "notification": {
     "default-title-success": "Success",
@@ -76,6 +77,7 @@
   },
   "nft-details-page-transfer-modal": {
     "transfer-title": "Transfer NFT",
+    "transfer-error": "Can't transfer NFT",
     "address-placeholder": "Enter user address for transfer",
     "address-title": "User address",
     "success-transfer": "You success transfer NFT",

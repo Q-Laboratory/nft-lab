@@ -44,3 +44,5 @@ export class ProviderMethodNotSupported extends RuntimeError {}
 export class ProviderLimitExceeded extends RuntimeError {}
 
 export class ProviderJsonRpcVersionNotSupported extends RuntimeError {}
+
+export class ProviderFailedEstimateGas extends RuntimeError {}
