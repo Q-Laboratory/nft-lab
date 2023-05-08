@@ -5,7 +5,7 @@ import { errors } from '@/errors'
 
 export class ErrorHandler {
   static process(error: Error | unknown, errorMessage = ''): void {
-    const msgTranslation = errorMessage || ErrorHandler._getErrorMessage(error)
+    const msgTranslation = ErrorHandler._getErrorMessage(error, errorMessage)
 
     if (msgTranslation) {
       Bus.error(msgTranslation)
@@ -18,7 +18,10 @@ export class ErrorHandler {
     log.error(error)
   }
 
-  static _getErrorMessage(error: Error | unknown): string {
+  static _getErrorMessage(
+    error: Error | unknown,
+    userMessage?: string,
+  ): string {
     const { t } = i18n.global
     let errorMessage = ''
 
@@ -84,12 +87,15 @@ export class ErrorHandler {
         case errors.ProviderWrapperMethodNotFoundError:
           errorMessage = t('errors.provider-wrapper-method-not-found')
           break
+        case errors.ProviderFailedEstimateGas:
+          errorMessage = userMessage || t('errors.provider-failed-estimate-gas')
+          break
         default: {
-          errorMessage = t('errors.default')
+          errorMessage = userMessage || t('errors.default')
         }
       }
     } else {
-      errorMessage = t('errors.default')
+      errorMessage = userMessage || t('errors.default')
     }
 
     return errorMessage

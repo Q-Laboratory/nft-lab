@@ -97,7 +97,10 @@ const transferNft = async () => {
     Bus.success(t('nft-details-page-transfer-modal.success-transfer'))
     emit('save')
   } catch (error) {
-    ErrorHandler.process(error)
+    ErrorHandler.process(
+      error,
+      t('nft-details-page-transfer-modal.transfer-error'),
+    )
   }
   enableForm()
 }
