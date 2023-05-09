@@ -86,7 +86,8 @@ This can be done as follows:
 
 After these steps in the terminal of the code editor you need to do the command `control + C` After that the frontend will not work locally
 
-2. Make a contract for NFT mint into a contract for [SBT](https://vitalik.ca/general/2022/01/26/soulbound.html) mint. To do this, add some code in the file `SimpleNFT.sol` at the path `NFT-LAB/core-contracts/contracts` after the comment `// TODO: additional task`
+2. Make a contract for NFT mint into a contract for [SBT](https://vitalik.ca/general/2022/01/26/soulbound.html) mint. To do this, add some code in the file `SimpleNFT.sol` at the path `NFT-LAB/core-contracts/contracts` after the comment `// TODO: additional task` \ 
+We expect you to write a simple solution that will make NFTs being issued non-transferable. To do this, you can look for options for already written SBT contracts and see how they can be used in your contract.
 
 3. After you have made changes to the `SimpleNFT.sol` file you need to redeploy and locally restart the frontend part, to do this you need to repeat steps 6-9 from the Main part. Then go through point 1 of the Main Tasks section
 
