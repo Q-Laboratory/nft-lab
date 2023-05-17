@@ -65,13 +65,19 @@ This can be done as follows:
     npm run start-web-client
     ```
     After its completion, there will be a link in the terminal to the front end which works locally.
+    
+    :warning: If you are using **Windows OS**, you need to replace line 14 in `package.json` file with following command **before execution step 8**:
+
+    ```
+    "start-web-client": "npm run copy-file-win && npm --prefix ./web-client run start"
+     ```
 
 9. When you click on the link, you will see the frontend part that will work with the contracts that we have deployed.
 
  :warning: **Save files after making changes to them**
 
 ## Tasks
-After successfully completing the Main part, you must complete the following tasks:
+**After successfully completing the Main part, you must complete the following tasks:**
 1. Check the operation of the basic flow:
     * Mint NFT use picture links (You can download the desired images to ipfs or find pictures on google and use the :warning: Copy Image Address :warning: function)
     * Transfer NFT to another address 
@@ -80,7 +86,9 @@ After successfully completing the Main part, you must complete the following tas
 
 After these steps in the terminal of the code editor you need to do the command `control + C` After that the frontend will not work locally
 
-2. Make a contract for NFT mint into a contract for [SBT](https://vitalik.ca/general/2022/01/26/soulbound.html) mint. To do this, add some code in the file `SimpleNFT.sol` at the path `NFT-LAB/core-contracts/contracts` after the comment `// TODO: additional task`
+2. Make a contract for NFT mint into a contract for [SBT](https://vitalik.ca/general/2022/01/26/soulbound.html) mint. To do this, add some code in the file `SimpleNFT.sol` at the path `NFT-LAB/core-contracts/contracts` after the comment `// TODO: additional task` 
+ 
+   We expect you to write a simple solution that will make NFTs being issued non-transferable. To do this, you can look for options for already written SBT contracts and see how they can be used in your contract.
 
 3. After you have made changes to the `SimpleNFT.sol` file you need to redeploy and locally restart the frontend part, to do this you need to repeat steps 6-9 from the Main part. Then go through point 1 of the Main Tasks section
 
@@ -90,4 +98,6 @@ After these steps in the terminal of the code editor you need to do the command 
 
 1. Take the address of the contract your friend plotted and follow steps 7-9 of the Main part. You should see the NFTs your friend has mined and also try to go through step 1 of the Main Tasks section. 
 
-2. Some of the features on the contract that you did not create will not be available to you, so check to see what those features are.
+2. Some of the features on the contract that you did not create will not be available to you, so check to see what those features are. After finishing the task, don't forget to use the `control + C` command in order for the front to stop working locally
+
+3. Add the ability to mint tokens to a specific address. The function to implement this is already in smart contracts, you need to add a field on the front to enter the address to which NFT or SBT will be minted. After making changes, save them and follow steps 8-9 from the Main part

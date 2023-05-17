@@ -10,6 +10,10 @@
     "generate-types": "npm --prefix ./core-contracts run generate-types",
     "deploy-contracts": "npm --prefix ./core-contracts run deploy-qtestnet",
     "copy-file": "npx cross-var \"cp ./.env ./web-client\"",
+    "copy-file-win": "cross-env copy ./.env ./web-client",
     "start-web-client": "npm run copy-file && npm --prefix ./web-client run start"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
   }
 }
