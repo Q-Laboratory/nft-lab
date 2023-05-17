@@ -4,23 +4,24 @@ pragma solidity ^0.8.19;
 import "./token/ABaseNFT.sol";
 
 contract SimpleNFT is ABaseNFT {
-    constructor(string memory name_, string memory symbol_) ABaseNFT(name_, symbol_) {}
+    constructor(string memory name, string memory symbol) ABaseNFT(name, symbol) {}
 
     function mintTo(
-        address receiver_,
-        uint256 tokenId_,
-        string calldata tokenURI_
+        address receiver,
+        uint256 tokenId,
+        string calldata tokenURI
     ) external override onlyOwner {
-        _mint(receiver_, tokenId_);
-        _setTokenURI(tokenId_, tokenURI_);
+        _mint(receiver, tokenId);
+        _setTokenURI(tokenId, tokenURI);
     }
 
-    function getUserTokens(address user_) external view returns (uint256[] memory) {
-        uint256 balance = balanceOf(user_);
+    function getUserTokens(address user) external view returns (uint256[] memory) {
+        uint256 balance = balanceOf(user);
+
         uint256[] memory tokens = new uint256[](balance);
 
         for (uint256 i = 0; i < balance; i++) {
-            tokens[i] = tokenOfOwnerByIndex(user_, i);
+            tokens[i] = tokenOfOwnerByIndex(user, i);
         }
 
         return tokens;
@@ -34,6 +35,7 @@ contract SimpleNFT is ABaseNFT {
     ) internal override(ABaseNFT) {
         super._beforeTokenTransfer(from, to, tokenId, batchSize);
 
-        // TODO: additional task
+        // TODO: your code goes here
+
     }
 }

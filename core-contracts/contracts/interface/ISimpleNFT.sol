@@ -10,13 +10,13 @@ interface ISimpleNFT is IERC721Enumerable {
         address owner;
     }
 
-    function mintTo(address receiver_, uint256 tokenId_, string calldata tokenURI_) external;
+    function mintTo(address receiver, uint256 tokenId, string calldata tokenURI) external;
 
-    function burnFrom(address payer_, uint256 tokenId_) external;
+    function burnFrom(address payer, uint256 tokenId) external;
 
-    function setTokenURI(uint256 tokenId_, string calldata tokenURI_) external;
+    function setTokenURI(uint256 tokenId, string calldata tokenURI) external;
 
-    function getTokensURIs(uint256[] calldata tokenIds_) external view returns (string[] memory);
+    function getTokensURIs(uint256[] calldata tokenIds) external view returns (string[] memory);
 
-    function getTokenInfo(uint256 tokenId_) external view returns (TokenInfo memory);
+    function getTokenInfo(uint256 tokenId) external view returns (TokenInfo memory);
 }
