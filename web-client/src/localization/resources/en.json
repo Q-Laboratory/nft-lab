@@ -2,7 +2,8 @@
   "validations": {
     "field-error_required": "Please fill out this field",
     "field-error_url": "Field must be a valid URL",
-    "field-error_email": "Field must be a valid email"
+    "field-error_email": "Field must be a valid email",
+    "field-error_ethAddress": "Field must be a valid eth address"
   },
   "errors": {
     "default": "Oops... Something went wrong",
@@ -65,6 +66,7 @@
     "nft-name-placeholder": "Enter the name of NFT",
     "nft-name-title": "NFT name",
     "nft-link-placeholder": "Enter the link to NFT image",
+    "nft-address-to-placeholder": "Enter the address to mint the NFT to",
     "nft-link-title": "NFT link",
     "loading-msg-btn": "Loading...",
     "loading-msg": "Please wait for the successful completion of the transaction",

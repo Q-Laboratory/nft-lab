@@ -18,6 +18,14 @@
             :error-message="getFieldErrorMessage('link')"
             @blur="touchField('link')"
           />
+          <input-field
+            v-model="form.addressTo"
+            class="nfts-page-mint-modal__input"
+            :placeholder="$t('nfts-page-mint-modal.nft-address-to-placeholder')"
+            :disabled="isFormDisabled"
+            :error-message="getFieldErrorMessage('addressTo')"
+            @blur="touchField('addressTo')"
+          />
         </div>
       </div>
 
@@ -50,7 +58,7 @@ import { reactive } from 'vue'
 import { AppButton, TeleportModal, Loader } from '@/common'
 import { InputField } from '@/fields'
 import { useForm, useFormValidation } from '@/composables'
-import { required, url } from '@/validators'
+import { ethAddress, required, url } from '@/validators'
 import { useErc721Store, useWeb3ProvidersStore } from '@/store'
 import { Bus, ErrorHandler } from '@/helpers'
 import { useI18n } from 'vue-i18n'
@@ -63,6 +71,7 @@ const emit = defineEmits<{
 const form = reactive({
   name: '',
   link: '',
+  addressTo: '',
 })
 
 const { t } = useI18n({ useScope: 'global' })
@@ -74,6 +83,7 @@ const { isFormValid, touchField, getFieldErrorMessage } = useFormValidation(
   form,
   {
     link: { required, url },
+    addressTo: { required, ethAddress },
   },
 )
 
@@ -81,11 +91,7 @@ const mintNft = async () => {
   if (!isFormValid() || !provider.selectedAddress) return
   disableForm()
   try {
-    const tx = await erc721.mint(
-      provider.selectedAddress,
-      Date.now(),
-      form.link,
-    )
+    const tx = await erc721.mint(form.addressTo, Date.now(), form.link)
     await tx?.wait()
     Bus.success(t('nfts-page-mint-modal.success-mint'))
     emit('save')
